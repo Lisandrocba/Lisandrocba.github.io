@@ -1,0 +1,86 @@
+/*
+ * Tokens de diseño del portfolio.
+ * Fuente: Figma, página 1 (Home `5:2208` y Formación `31:646`, desktop).
+ * Escala tipográfica unificada: 1.6, 1.65 y 1.7 → --leading-body; 1.12, 1.15 y 1.2 → --leading-heading; 42 y 44 px → --title-xl.
+ * Tamaños mobile y tracking leídos del frame mobile de Home (`9:1244`); `--title-lg` (23 → 32) y `--title-2xl` (36 → 60),
+ * de los frames mobile de Empleos (`25:1131`) y Formación (`31:754`). Figma muestra el tracking ×100 (p. ej. "-300%"); se aplican divididos por 100 (-3 %, -1 %, -1.5 %, -8 %), criterio acordado con el usuario.
+ *
+ * Breakpoint de layout (las custom properties no funcionan en @media, se usa el literal):
+ *   < 1024px   layout mobile de Figma (frame 390), también para tablet
+ *   ≥ 1024px   layout desktop de Figma (frame 1440, contenido de 1280)
+ * Los tamaños fluidos interpolan entre 390 y 1440 px.
+ */
+:root {
+  /* Color */
+  --color-bg: #2c2c2c;
+  --color-text-primary: #cee1ed;
+  --color-text-secondary: #899eb4;
+  --color-accent: #f19778;
+  --color-border-subtle: rgba(137, 158, 180, 0.25);
+  --color-text-inverse: var(--color-bg);
+
+  /* Familias y pesos */
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Tamaños de texto */
+  --text-2xs: 10px;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-md: 13px;
+  --text-lg: 14px;
+  --text-xl: 15px;
+  --text-2xl: 16px;
+  --text-3xl: 17px;
+
+  /* Tamaños de título. Los fluidos interpolan linealmente entre el frame mobile (390) y desktop (1440). */
+  --title-sm: 23px;
+  --title-md: 26px;
+  --title-lg: clamp(23px, 19.657px + 0.8571vw, 32px);
+  --title-xl: clamp(30px, 24.8px + 1.3333vw, 44px);
+  --title-2xl: clamp(36px, 27.086px + 2.2857vw, 60px);
+  --title-3xl: clamp(36px, 21.143px + 3.8095vw, 76px);
+  --title-display: clamp(40px, 26.743px + 6.4762vw, 120px);
+
+  /* Tracking (letter-spacing) */
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.01em;
+  --tracking-contact: -0.015em;
+  --tracking-code: -0.08em;
+
+  /* Interlineado */
+  --leading-display: 1.08;
+  --leading-heading: 1.15;
+  --leading-title: 1.3;
+  --leading-body: 1.65;
+
+  /* Espaciado (valores repetidos en Figma) */
+  --space-2xs: 8px;
+  --space-xs: 12px;
+  --space-sm: 16px;
+  --space-md: 20px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 56px;
+  --space-4xl: 64px;
+  --space-5xl: 80px;
+  --space-6xl: 88px;
+  --space-7xl: 96px;
+
+  /* Forma y controles */
+  --radius-pill: 999px;
+  --border-width: 1px;
+  --control-height: 48px;
+  --control-padding-x: 22px;
+  --control-gap: 20px;
+
+  /* Layout */
+  --layout-content-max: 1280px;
+  --layout-gutter-mobile: 24px;
+  --layout-gutter-desktop: 80px;
+  --layout-gutter: clamp(24px, 3.2px + 5.3333vw, 80px);
+}

@@ -1,0 +1,51 @@
+.title {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+}
+
+/* Títulos de ítem y subsección. */
+.size-sm {
+  font-size: var(--title-sm);
+  line-height: var(--leading-title);
+}
+
+.size-md {
+  font-size: var(--title-md);
+  line-height: var(--leading-title);
+}
+
+/* Título de ítem de Empleos y Formación (fluido 23 → 32 px). */
+.size-lg {
+  font-size: var(--title-lg);
+  line-height: var(--leading-title);
+}
+
+/* Títulos de sección (fluido 30 → 44 px). */
+.size-xl {
+  font-size: var(--title-xl);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+/* Título de página (fluido 36 → 60 px). */
+.size-2xl {
+  font-size: var(--title-2xl);
+  line-height: var(--leading-heading);
+}
+
+/* Invitación de contacto (fluido 36 → 76 px). */
+.size-3xl {
+  font-size: var(--title-3xl);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-contact);
+}
+
+/* Hero de Home (fluido 52 → 120 px). */
+.size-display {
+  font-size: var(--title-display);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
