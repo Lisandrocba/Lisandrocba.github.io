@@ -1,0 +1,49 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.bubble {
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+  overflow-wrap: anywhere;
+}
+
+/* "Burbuja enviada": hasta 306 px, relleno claro, padding 16, esquina inferior derecha de 4. */
+.user {
+  align-items: flex-end;
+}
+
+.user .bubble {
+  max-width: min(306px, 100%);
+  padding: var(--space-sm);
+  border-radius: 16px 16px 4px 16px;
+  background: var(--color-text-primary);
+  color: var(--color-surface);
+}
+
+/*
+ * "Burbuja recibida": 352 px fijos como en Figma (el ancho no salta mientras se escribe la respuesta),
+ * superficie elevada con borde, padding 18 y esquina superior izquierda de 4.
+ */
+.assistant {
+  align-items: flex-start;
+}
+
+.assistant .bubble {
+  width: min(352px, 100%);
+  padding: 18px;
+  border: var(--border-width) solid var(--color-border-subtle);
+  border-radius: 4px 16px 16px 16px;
+  background: var(--color-surface-raised);
+  color: var(--color-text-primary);
+}
+
+.assistant .compact {
+  width: auto;
+}
+
+.footer {
+  width: min(352px, 100%);
+}

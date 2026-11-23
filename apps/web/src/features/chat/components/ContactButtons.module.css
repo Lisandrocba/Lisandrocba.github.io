@@ -1,0 +1,18 @@
+/* "Canales de contacto": dos botones que reparten el ancho, gap 12, padding-top 4. */
+.channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  width: 100%;
+  padding-top: 4px;
+}
+
+.channels .channel {
+  --control-padding-x: 20px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.channels .linkedin {
+  color: var(--color-surface);
+}

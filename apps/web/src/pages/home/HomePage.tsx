@@ -1,3 +1,5 @@
+import { ChatDrawer } from '../../features/chat/components/ChatDrawer.tsx'
+import { useChatDrawer } from '../../features/chat/hooks/useChatDrawer.ts'
 import { educationHighlights, workHighlights } from './data/highlights.ts'
 import { sectionIds } from './data/profile.ts'
 import { AboutSection } from './components/AboutSection.tsx'
@@ -9,10 +11,14 @@ import { HomeHeader } from './components/HomeHeader.tsx'
 import { StackSection } from './components/StackSection.tsx'
 import styles from './HomePage.module.css'
 
+const CHAT_DRAWER_ID = 'chat-perfil'
+
 export function HomePage() {
+  const chat = useChatDrawer()
+
   return (
     <div className={styles.page}>
-      <HomeHeader />
+      <HomeHeader chatId={CHAT_DRAWER_ID} isChatOpen={chat.isOpen} onOpenChat={chat.open} />
       <main>
         <HeroSection />
         <AboutSection />
@@ -38,6 +44,7 @@ export function HomePage() {
         <ContactSection />
       </main>
       <HomeFooter />
+      <ChatDrawer id={CHAT_DRAWER_ID} open={chat.isOpen} onClose={chat.close} />
     </div>
   )
 }
