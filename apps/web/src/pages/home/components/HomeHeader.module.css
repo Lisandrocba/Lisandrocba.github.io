@@ -2,17 +2,29 @@
   composes: container from '../../../components/layout.module.css';
 }
 
-/* Mobile: identidad + "Hablemos" (88 px) y fila de enlaces (56 px) entre separadores. */
+/*
+ * Mobile: identidad + "Hablemos" (88 px) y fila de enlaces (56 px) entre separadores.
+ * El chat no tiene frame mobile: va al final de la fila de enlaces (40 px) porque en 390 px no entra junto a "Hablemos".
+ */
 .bar {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto 40px;
   column-gap: var(--space-xs);
   grid-template-areas:
-    'identity cta'
-    'nav nav';
+    'identity cta cta'
+    'nav nav chat';
   grid-template-rows: 88px minmax(56px, auto);
   align-items: center;
   border-bottom: var(--border-width) solid var(--color-border-subtle);
+}
+
+/* Separador entre las dos filas, a todo el ancho. */
+.bar::before {
+  content: '';
+  grid-row: 2;
+  grid-column: 1 / -1;
+  align-self: start;
+  border-top: var(--border-width) solid var(--color-border-subtle);
 }
 
 .identity {
@@ -39,6 +51,11 @@
 
 .cta {
   grid-area: cta;
+  justify-self: end;
+}
+
+.chat {
+  grid-area: chat;
 }
 
 .nav {
@@ -46,7 +63,13 @@
   align-self: stretch;
   display: flex;
   align-items: center;
-  border-top: var(--border-width) solid var(--color-border-subtle);
+}
+
+@media (max-width: 1023px) {
+  .bar .chat {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* En pantallas menores a 390 px los enlaces pasan a una segunda línea en lugar de desbordar. */
@@ -82,11 +105,16 @@
 }
 
 @media (min-width: 1024px) {
+  /* Figma `5:2210`: enlaces, "Hablemos" y "Chat flotante" con gap 32. */
   .bar {
-    grid-template-columns: 1fr auto auto;
-    grid-template-areas: 'identity nav cta';
+    grid-template-columns: 1fr auto auto auto;
+    grid-template-areas: 'identity nav cta chat';
     grid-template-rows: 104px;
     column-gap: var(--space-xl);
+  }
+
+  .bar::before {
+    display: none;
   }
 
   .identity {
@@ -99,7 +127,6 @@
 
   .nav {
     align-self: center;
-    border-top: 0;
   }
 
   .links {

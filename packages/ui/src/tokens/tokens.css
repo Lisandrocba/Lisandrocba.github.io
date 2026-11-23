@@ -1,6 +1,6 @@
 /*
  * Tokens de diseño del portfolio.
- * Fuente: Figma, página 1 (Home `5:2208` y Formación `31:646`, desktop).
+ * Fuente: Figma, página 1 (Home `5:2208` y Formación `31:646`, desktop; drawer de chat `69:662` y `69:741`).
  * Escala tipográfica unificada: 1.6, 1.65 y 1.7 → --leading-body; 1.12, 1.15 y 1.2 → --leading-heading; 42 y 44 px → --title-xl.
  * Tamaños mobile y tracking leídos del frame mobile de Home (`9:1244`); `--title-lg` (23 → 32) y `--title-2xl` (36 → 60),
  * de los frames mobile de Empleos (`25:1131`) y Formación (`31:754`). Figma muestra el tracking ×100 (p. ej. "-300%"); se aplican divididos por 100 (-3 %, -1 %, -1.5 %, -8 %), criterio acordado con el usuario.
@@ -18,6 +18,11 @@
   --color-accent: #f19778;
   --color-border-subtle: rgba(137, 158, 180, 0.25);
   --color-text-inverse: var(--color-bg);
+  --color-text-disabled: #65717b;
+  /* Superficies del drawer de chat (Figma: "Inicio · Chat IA" `69:662`). */
+  --color-surface: #202223;
+  --color-surface-raised: #2c3033;
+  --color-field: #252829;
 
   /* Familias y pesos */
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;

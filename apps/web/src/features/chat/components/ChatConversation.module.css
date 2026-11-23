@@ -1,0 +1,24 @@
+/* "Contenido de la conversación": ocupa el alto libre y se desplaza; padding-x 28. */
+.conversation {
+  flex: 1;
+  min-height: 0;
+  padding: 0 28px var(--space-lg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.log {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* "Intercambio de mensajes": padding-top 8, gap 24. */
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin: 0;
+  padding: var(--space-2xs) 0 0;
+  list-style: none;
+}

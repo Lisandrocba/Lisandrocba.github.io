@@ -12,7 +12,7 @@
     "build": "yarn workspace web build",
     "preview": "yarn workspace web preview",
     "lint": "eslint .",
-    "typecheck": "yarn workspace @portfolio/ui typecheck",
+    "typecheck": "yarn workspace @portfolio/ui typecheck && yarn workspace @portfolio/api typecheck",
     "storybook": "yarn workspace @portfolio/ui storybook",
     "build-storybook": "yarn workspace @portfolio/ui build-storybook"
   },

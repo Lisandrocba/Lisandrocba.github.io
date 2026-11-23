@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@portfolio/api": "*",
     "@portfolio/ui": "*",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

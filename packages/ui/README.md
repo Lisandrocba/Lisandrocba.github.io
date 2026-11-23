@@ -1,6 +1,6 @@
 # @portfolio/ui
 
-Paquete interno de componentes del portfolio: tokens de diseño, componentes base (`Button`, `Text`, `Title`, `Chip` e `Icon`) e iconos SVG originales de Figma. Lo consume `apps/web` dentro del monorepo y no se publica en npm.
+Paquete interno de componentes del portfolio: tokens de diseño, componentes base (`Button`, `IconButton`, `Text`, `Title`, `Chip` e `Icon`) e iconos SVG originales de Figma. Lo consume `apps/web` dentro del monorepo y no se publica en npm.
 
 **Fuente de verdad:** página 1 del archivo de Figma, con los frames desktop de Home (`5:2208`) y Formación (`31:646`). Ver `CLAUDE.md` en la raíz.
 
@@ -100,6 +100,24 @@ Hover, active y disabled **no están definidos en Figma**. Son estados mínimos 
 
 Elegí `level` según la jerarquía del documento y `size` según el diseño.
 
+### IconButton
+
+Botón circular con un solo icono ("Cerrar modal", "Enviar consulta" y "Chat flotante" del drawer de chat). Siempre `<button type="button">`, salvo que se pase otro `type`.
+
+| Prop | Tipo | Por defecto | Descripción |
+|---|---|---|---|
+| `icon` | `IconName` | — | Icono (obligatorio). |
+| `label` | `string` | — | Nombre accesible (`aria-label`, obligatorio). |
+| `variant` | `'primary' \| 'secondary' \| 'accent'` | `'secondary'` | `primary`: relleno claro. `secondary`: contorno. `accent`: relleno de acento. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 36 · 40 · 56 px. |
+
+Además acepta los atributos nativos de `<button>` (`onClick`, `disabled`, `aria-expanded`…). El estado `disabled` sale de Figma ("Envío deshabilitado"); `aria-disabled="true"` se ve igual pero conserva el foco. Hover y active no están definidos.
+
+```tsx
+<IconButton icon="x" label="Cerrar chat" size="sm" onClick={close} />
+<IconButton type="submit" variant="primary" icon="arrow-up-large" label="Enviar consulta" />
+```
+
 ### Chip
 
 Etiqueta **no interactiva** ("Etiqueta" y "Categoría" en Figma). Para filtros usá `Button` con `pressed`.
@@ -137,7 +155,7 @@ Están en `src/tokens/tokens.css`, como variables CSS en `:root`. Se cargan con 
 
 | Grupo | Tokens |
 |---|---|
-| Color | `--color-bg`, `--color-text-primary`, `--color-text-secondary`, `--color-accent`, `--color-border-subtle`, `--color-text-inverse` |
+| Color | `--color-bg`, `--color-text-primary`, `--color-text-secondary`, `--color-accent`, `--color-border-subtle`, `--color-text-inverse`, `--color-text-disabled`, `--color-surface`, `--color-surface-raised`, `--color-field` |
 | Fuentes | `--font-mono` (IBM Plex Mono), `--font-sans` (Inter), `--font-weight-regular/medium/semibold` |
 | Texto | `--text-2xs` … `--text-3xl` (10–17 px), `--title-sm` … `--title-display` (23–120 px; `lg`, `xl`, `2xl`, `3xl` y `display` son fluidos) |
 | Tracking | `--tracking-display` (-3 %), `--tracking-heading` (-1 %), `--tracking-contact` (-1.5 %), `--tracking-code` (-8 %) |
@@ -156,7 +174,7 @@ Reglas:
 
 Ubicación: `src/icons/<nombre>.svg`, en kebab-case. El registro tipado está en `src/icons/index.ts`.
 
-Disponibles: `arrow-down`, `arrow-left`, `arrow-up`, `arrow-up-right`, `database`, `download`, `github`, `linkedin` y `panels-top-left`.
+Disponibles: `arrow-down`, `arrow-left`, `arrow-up`, `arrow-up-large`, `arrow-up-right`, `circle-alert`, `database`, `download`, `github`, `linkedin`, `lock-keyhole`, `mail`, `message-circle`, `panels-top-left` y `x`.
 
 **Agregar un icono:**
 1. Exportar el SVG desde Figma (página 1) con el MCP de Figma (`download_assets` sobre el nodo del icono) o con *Export → SVG* en Figma.

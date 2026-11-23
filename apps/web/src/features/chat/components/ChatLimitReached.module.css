@@ -1,0 +1,46 @@
+/* "Límite de consultas": padding-top 12, gap 20. */
+.limit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-top: var(--space-xs);
+}
+
+/* Recibe el foco por código al aparecer; no es un control. */
+.limit:focus {
+  outline: 0;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--color-accent);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.05em; /* Figma: 0.5 px sobre 10 px. */
+}
+
+/* "Título de estado": 26 px, interlineado 1.25 y tracking -0.8 px (≈ -3 %). */
+.limit .title {
+  line-height: 1.25;
+  letter-spacing: var(--tracking-display);
+}
+
+.message,
+.invitation {
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+.invitation {
+  color: var(--color-text-secondary);
+}
+
+.address {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-2xs);
+  overflow-wrap: anywhere;
+}
